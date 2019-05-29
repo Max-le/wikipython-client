@@ -1,5 +1,4 @@
-import React, { Component, Button } from "react";
-import { runInThisContext } from "vm";
+import React, { Component } from "react";
 
 
 class About extends Component {
@@ -16,7 +15,7 @@ class About extends Component {
     toggleButton(){
         if (this.state.showText === true ) return (<div></div>)
         else
-        return(<div><button type='submit'  onClick={this.handleToggleButton}>About this app</button></div>)
+        return(<div><button  onClick={this.handleToggleButton}>About this app</button></div>)
     }
     handleToggleButton(e){
         e.preventDefault();
