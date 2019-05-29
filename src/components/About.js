@@ -33,6 +33,7 @@ class About extends Component {
              on <a href="http://wiktionary.org">Wiktionary.org</a>, this app is just a more convenient way to harvest 
              and present the data. 
              </p>
+             <p style={{fontStyle:"italic", color:"grey", fontSize:12}}>Created by Max Lepin</p>
              </div>
         )
     }
