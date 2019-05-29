@@ -16,9 +16,11 @@ class Translator extends Component {
   }
   componentDidMount(){
     this.changeToRandomWord()
+    
   }
+  
   handleSubmit(event){
-    //TO-DO :  CHANGE REDUX STATE
+   
     event.preventDefault(); // This prevents the form from refreshing the page
     console.log('Handle submit event triggered.')
     console.log("IN HANDLE SUBMIT EVENT :")
