@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import ReactLoading from 'react-loading';
 
 class Translator extends Component { 
 
   constructor(props) {
     super(props);
-    this.state = {wordInput: "query", word_data:[], targetLang: "German", requestCompleted: false};
+    this.state = {wordInput: "query", word_data:[], targetLang: "German", requestCompleted: false, requestLoading: false};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this); 
     this.handleLanguageChange = this.handleLanguageChange.bind(this);
@@ -20,15 +21,16 @@ class Translator extends Component {
   }
   
   handleSubmit(event){
-   
+
     event.preventDefault(); // This prevents the form from refreshing the page
     console.log('Handle submit event triggered.')
     console.log("IN HANDLE SUBMIT EVENT :")
+    this.setState({requestLoading:true, requestCompleted:false})
     console.log(this.state)
     console.log("Fetching...")
     const url = "https://cryptic-gorge-83791.herokuapp.com/translate?word="+this.state.wordInput+"&lang="+this.state.targetLang
     fetch(url)
-    .then((res) => {return res.json()}).then(((data) => this.setState({word_data: data, requestCompleted:true})))
+    .then((res) => {return res.json()}).then(((data) => this.setState({word_data: data, requestCompleted:true, requestLoading:false})))
     console.log(this.state)
     console.log( "URL : "+url)
     
@@ -42,6 +44,13 @@ class Translator extends Component {
   handleLanguageChange(event){
     this.setState({targetLang: event.target.value})
     console.log(this.state.targetLang)
+
+  }
+
+  loading(){
+    return(<div style={{  width: 50, margin:'auto'}}>  
+        <ReactLoading type={'spin'} color={'blue'} height={50} width={50} />
+      </div>)
 
   }
   wordInput(){
@@ -105,6 +114,9 @@ class Translator extends Component {
           {this.wordInput()}{listKeys}{this.credits()}
           </div>
           )
+        }
+        else if (this.state.requestLoading === true) {
+          return (this.loading())
         }
         else return (
           <div style={divStyle}>{this.wordInput()}</div>
