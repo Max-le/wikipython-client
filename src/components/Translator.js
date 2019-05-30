@@ -58,7 +58,7 @@ class Translator extends Component {
       <span>Enter the word to translate here : </span>
       <form onSubmit={this.handleSubmit}>
       <input type="text" value={this.state.wordInput} onChange={this.handleChange} />
-      <select name="Languages" onChange={this.handleLanguageChange}>
+      <select name="Languages" value={this.state.targetLang} onChange={this.handleLanguageChange}>
         <option value="German">German</option>
         <option value="French">French</option>
         <option value="Dutch">Dutch</option>
