@@ -86,7 +86,7 @@ class Translator extends Component {
       var divStyle = {
         color: "grey", 
         fontSize:20, 
-        borderStyle: "dotted",
+        // borderStyle: "dotted",
 
  
       }
