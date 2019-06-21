@@ -17,6 +17,7 @@ class Translator extends Component {
   }
   componentDidMount(){
     this.changeToRandomWord()
+    fetch("https://cryptic-gorge-83791.herokuapp.com/translate?word=wake&lang=French").then((res) => {console.log("Wake up request OK")})
     
   }
   
