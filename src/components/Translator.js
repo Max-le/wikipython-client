@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Button from 'react-bootstrap/Button';
-
+import {Button, Form, Dropdown} from 'react-bootstrap';
 import ReactLoading from 'react-loading';
 
 class Translator extends Component { 
@@ -51,26 +50,20 @@ class Translator extends Component {
   }
 
   loading(){
-    return(<div style={{  width: 50, margin:'auto'}}>  
-        <ReactLoading type={'spin'} color={'blue'} height={50} width={50} />
+    return(<div style={{  width:70, margin:'auto', padding:5}}>  
+        <ReactLoading type={'spin'} color={'blue'} height={"100%"} width={"100%"} />
       </div>)
 
   }
-  bootstrapLink(){
-    return(
-    <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous"
-      />)
-  }
+
   wordInput(){
     return (<div>
       <span>Enter the word to translate here : </span>
-      <form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
       <input type="text" value={this.state.wordInput} onChange={this.handleChange} />
-      <select name="Languages" value={this.state.targetLang} onChange={this.handleLanguageChange}>
+      <select name="Languages" value={this.state.targetLang} onChange={this.handleLanguageChange} 
+      style={{backgroundColor:"White",borderColor:"Grey", margin:"0px 3px", fontSize:13, borderColor:"LightBlue"}}>
+
         <option value="German">German</option>
         <option value="French">French</option>
         <option value="Dutch">Dutch</option>
@@ -78,9 +71,9 @@ class Translator extends Component {
         <option value="Swedish">Swedish</option>
 
       </select>
-      <Button varient="primary" type="submit" value="Submit">Translate ! </Button>
-      </form>
-      {this.bootstrapLink()}
+      <Button variant="outline-primary" type="submit" value="Submit">Translate ! </Button>
+      
+      </Form>
       </div>
       
       )

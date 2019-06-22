@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Button from 'react-bootstrap/Button';
 
 class About extends Component {
 
@@ -15,13 +15,15 @@ class About extends Component {
     toggleButton(){
         if (this.state.showText === true ) return (<div></div>)
         else
-        return(<div><button  onClick={this.handleToggleButton}>About this app</button></div>)
+        return(<div><Button variant="outline-secondary"  onClick={this.handleToggleButton}>About this app</Button></div>)
     }
     handleToggleButton(e){
         e.preventDefault();
         if (this.state.showText === false) {this.setState({showText:true})}
         else {this.setState({showText:false})}
     }
+
+      
     text(){
         if (this.state.showText === false) return (<div></div>)
         return(
