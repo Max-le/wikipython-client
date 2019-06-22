@@ -67,8 +67,16 @@ class Translator extends Component {
         <option value="German">German</option>
         <option value="French">French</option>
         <option value="Dutch">Dutch</option>
+        <option value="Russian">Russian</option>
+        <option value="Japanese">Japanese</option>
         <option value="Italian">Italian</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Portuguese">Portuguese</option>
         <option value="Swedish">Swedish</option>
+        <option value="Finnish">Finnish</option>
+        <option value="Norwegian">Norwegian</option>
+        <option value="Hindi"> Hindi</option>
+
 
       </select>
       <Button variant="outline-primary" type="submit" value="Submit">Translate ! </Button>
