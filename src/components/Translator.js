@@ -10,6 +10,7 @@ class Translator extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this); 
     this.handleLanguageChange = this.handleLanguageChange.bind(this);
+    this.changeToRandomWord = this.changeToRandomWord.bind(this)
   }
 
   changeToRandomWord(){
@@ -58,7 +59,7 @@ class Translator extends Component {
 
   wordInput(){
     return (<div>
-      <span>Enter the word to translate here : </span>
+      <span>Enter an english word to translate here : </span>
       <Form onSubmit={this.handleSubmit}>
       <input type="text" value={this.state.wordInput} onChange={this.handleChange} />
       <select name="Languages" value={this.state.targetLang} onChange={this.handleLanguageChange} 
@@ -80,8 +81,9 @@ class Translator extends Component {
 
       </select>
       <Button variant="outline-primary" type="submit" value="Submit">Translate ! </Button>
-      
       </Form>
+      <Button onClick={this.changeToRandomWord} style={{margin:5}} variant="outline-primary">Random word</Button>
+
       </div>
       
       )
