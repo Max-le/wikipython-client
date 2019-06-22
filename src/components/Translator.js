@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Button from 'react-bootstrap/Button';
+
 import ReactLoading from 'react-loading';
 
 class Translator extends Component { 
@@ -54,6 +56,15 @@ class Translator extends Component {
       </div>)
 
   }
+  bootstrapLink(){
+    return(
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+      />)
+  }
   wordInput(){
     return (<div>
       <span>Enter the word to translate here : </span>
@@ -67,10 +78,12 @@ class Translator extends Component {
         <option value="Swedish">Swedish</option>
 
       </select>
-      
-      <input type="submit" value="Submit"/>
+      <Button varient="primary" type="submit" value="Submit">Translate ! </Button>
       </form>
-      </div>)
+      {this.bootstrapLink()}
+      </div>
+      
+      )
     }
     credits(){
       return(
