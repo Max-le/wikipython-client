@@ -53,6 +53,7 @@ class Translator extends Component {
   loading(){
     return(<div style={{  width:70, margin:'auto', padding:5}}>  
         <ReactLoading type={'spin'} color={'blue'} height={"100%"} width={"100%"} />
+        <span>( the first query may take more time ) </span>
       </div>)
 
   }
