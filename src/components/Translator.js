@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import {Button, Form, Dropdown} from 'react-bootstrap';
 import ReactLoading from 'react-loading';
 
-class Translator extends Component { 
+class Translator extends Component {
 
+  URL_SERVER = "https://wiki-python-server.herokuapp.com"
   constructor(props) {
     super(props);
     this.state = {wordInput: "query", word_data:[], targetLang: "German", requestCompleted: false, requestLoading: false};
@@ -19,7 +20,7 @@ class Translator extends Component {
   }
   componentDidMount(){
     this.changeToRandomWord()
-    fetch("https://cryptic-gorge-83791.herokuapp.com/translate?word=wake&lang=French").then((res) => {console.log("Wake up request OK")})
+    fetch(this.URL_SERVER+"/translate?word=wake&lang=French").then((res) => {console.log("Wake up request OK")})
     
   }
   
@@ -31,7 +32,7 @@ class Translator extends Component {
     this.setState({requestLoading:true, requestCompleted:false})
     console.log(this.state)
     console.log("Fetching...")
-    const url = "https://cryptic-gorge-83791.herokuapp.com/translate?word="+this.state.wordInput+"&lang="+this.state.targetLang
+    const url = this.URL_SERVER+"/translate?word="+this.state.wordInput+"&lang="+this.state.targetLang
     fetch(url)
     .then((res) => {return res.json()}).then(((data) => this.setState({word_data: data, requestCompleted:true, requestLoading:false})))
     console.log(this.state)
@@ -66,7 +67,7 @@ class Translator extends Component {
       <Form onSubmit={this.handleSubmit}>
       <input type="text" value={this.state.wordInput} onChange={this.handleChange} />
       <select name="Languages" value={this.state.targetLang} onChange={this.handleLanguageChange} 
-      style={{backgroundColor:"White",borderColor:"Grey", margin:"0px 3px", fontSize:13, borderColor:"LightBlue"}}>
+      style={{backgroundColor:"White", margin:"0px 3px", fontSize:13, borderColor:"LightBlue"}}>
 
         <option value="German">German</option>
         <option value="French">French</option>
